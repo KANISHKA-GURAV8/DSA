@@ -4,12 +4,20 @@ class Solution(object):
         :type accounts: List[List[int]]
         :rtype: int
         """
-        max_num=float('-inf')
+        # max_num=float('-inf')
+        # for i in range(0,len(accounts)):
+        #     sum_num=sum(accounts[i])
+        #     max_num=max(sum_num,max_num)
+        # return max_num
+
+        max_sum=float('-inf')
         for i in range(0,len(accounts)):
-            # sum=accounts[i][i]+accounts[i][i+1]
-            sum_num=sum(accounts[i])
-            max_num=max(sum_num,max_num)
-        return max_num
+            sum=0
+            for j in range(0,len(accounts[i])):
+                sum+=accounts[i][j]
+            max_sum=max(sum,max_sum)
+        return max_sum
+
 
         
 
