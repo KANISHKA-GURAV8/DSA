@@ -1,27 +1,20 @@
-class Solution(object):
-    def isAnagram(self, s, t):
-        """
-        :type s: str
-        :type t: str
-        :rtype: bool
-        """
-        s_freq={}
-        t_freq={}
-        for i in range(0,len(s)):
-            if s[i] in s_freq:
-                s_freq[s[i]]+=1
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        hash_s={}
+        for i in range(len(s)):
+            if s[i] in hash_s:
+                hash_s[s[i]]+=1
             else:
-                s_freq[s[i]]=1
-        
-        for j in range(0,len(t)):
-            if t[j] in t_freq:
-                t_freq[t[j]]+=1
+                hash_s[s[i]]=1
+
+        hash_t={}
+        for i in range(len(t)):
+            if t[i] in hash_t:
+                hash_t[t[i]]+=1
             else:
-                t_freq[t[j]]=1
-        
-        if s_freq==t_freq:
+                hash_t[t[i]]=1
+
+        if hash_s==hash_t:
             return True
         else:
             return False
-
-        
