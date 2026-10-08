@@ -1,21 +1,15 @@
-class Solution(object):
-    def groupAnagrams(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
+class Solution:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         hash_map={}
-        for sen in strs:
-            sort_s="".join(sorted(sen))
-            if sort_s in hash_map:
-                hash_map[sort_s].append(sen)
+        for word in strs:
+            sorted_w="".join(sorted(word))
+            if sorted_w in hash_map:
+                hash_map[sorted_w].append(word)
             else:
-                hash_map[sort_s]=[sen]
-        
-        return list(hash_map.values())
+                hash_map[sorted_w]=[word]
 
-        
-
-
-
-
+        result=[]
+        for k,v in hash_map.items():
+            result.append(v)
+        return result
+                    
